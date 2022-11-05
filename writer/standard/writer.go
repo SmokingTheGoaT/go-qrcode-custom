@@ -1,6 +1,7 @@
 package standard
 
 import (
+	"bytes"
 	"fmt"
 	"image"
 	"image/color"
@@ -26,6 +27,18 @@ type Writer struct {
 	option *outputImageOptions
 
 	closer io.WriteCloser
+}
+
+type BufferCloser struct {
+	bytes.Buffer
+}
+
+func (bc *BufferCloser) Close() error {
+	return nil
+}
+
+func NewBytesWriter(buffer *BufferCloser, opts ...ImageOption) (*Writer, error) {
+	return NewWithWriter(buffer, opts...), nil
 }
 
 // New creates a standard writer.

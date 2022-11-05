@@ -1,6 +1,8 @@
 package standard
 
 import (
+	"bytes"
+	"encoding/base64"
 	"fmt"
 	"image"
 	"image/color"
@@ -215,6 +217,22 @@ func WithHalftone(path string) ImageOption {
 		}
 
 		oo.halftoneImg = srcImg
+	})
+}
+
+func WithHalftoneFromString(base64ImgStr string) ImageOption {
+	return newFuncOption(func(oo *outputImageOptions) {
+		byteImg, err := base64.RawURLEncoding.DecodeString(base64ImgStr)
+		if err != nil {
+			fmt.Println("Reading halftone image from string failed: ", err)
+			return
+		}
+		img, _, err := image.Decode(bytes.NewReader(byteImg))
+		if err != nil {
+			fmt.Println("Reading halftone image from string failed: ", err)
+			return
+		}
+		oo.halftoneImg = img
 	})
 }
 
