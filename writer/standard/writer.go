@@ -9,8 +9,8 @@ import (
 	"log"
 	"os"
 
-	"github.com/yeqown/go-qrcode/v2"
-	"github.com/yeqown/go-qrcode/writer/standard/imgkit"
+	"github.com/SmokingTheGoaT/go-qrcode-custom/v2"
+	"github.com/SmokingTheGoaT/go-qrcode-custom/writer/standard/imgkit"
 
 	"github.com/fogleman/gg"
 	"github.com/pkg/errors"
