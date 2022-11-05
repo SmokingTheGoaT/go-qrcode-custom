@@ -1,4 +1,4 @@
-module github.com/SmokingTheGoaT/go-qrcode/v2
+module github.com/SmokingTheGoaT/go-qrcode-custom/v2
 
 go 1.18
 
