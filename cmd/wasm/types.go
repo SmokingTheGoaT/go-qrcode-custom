@@ -8,8 +8,7 @@ import (
 	"io"
 	"syscall/js"
 
-	"github.com/yeqown/go-qrcode/v2"
-	stdw "github.com/yeqown/go-qrcode/writer/standard"
+	stdw "github.com/SmokingTheGoaT/go-qrcode-custom/writer/standard"
 )
 
 // encodeOption refers to github.com/yeqown/go-qrcode/v2.encodingOption

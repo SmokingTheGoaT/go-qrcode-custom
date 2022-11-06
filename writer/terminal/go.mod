@@ -1,4 +1,4 @@
-module github.com/SmokingTheGoat/go-qrcode-custom/writer/terminal
+module github.com/SmokingTheGoaT/go-qrcode-custom/writer/terminal
 
 go 1.17
 

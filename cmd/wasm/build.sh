@@ -1,3 +1,3 @@
 #!/bin/sh
 
-GOOS=js GOARCH=wasm go build -o com.github.yeqown.goqrcode.wasm
+GOOS=js GOARCH=wasm go build -o com.github.SmokingTheGoaT.goqrcodecustom.wasm

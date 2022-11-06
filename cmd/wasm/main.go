@@ -7,9 +7,9 @@ import (
 	"fmt"
 	"syscall/js"
 
+	qrcode "github.com/SmokingTheGoaT/go-qrcode-custom/v2"
+	stdw "github.com/SmokingTheGoaT/go-qrcode-custom/writer/standard"
 	"github.com/pkg/errors"
-	qrcode "github.com/yeqown/go-qrcode/v2"
-	stdw "github.com/yeqown/go-qrcode/writer/standard"
 )
 
 func main() {
