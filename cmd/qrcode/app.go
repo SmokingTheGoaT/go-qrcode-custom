@@ -5,12 +5,10 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/yeqown/go-qrcode/v2"
-	"github.com/yeqown/go-qrcode/writer/standard"
+	"github.com/SmokingTheGoaT/go-qrcode-custom/writer/standard"
 	"github.com/yeqown/go-qrcode/writer/terminal"
 
 	"github.com/pkg/errors"
-	"github.com/urfave/cli/v2"
 )
 
 var copyright = `Copyright (c) 2018 yeqown
