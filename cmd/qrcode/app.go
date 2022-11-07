@@ -6,7 +6,7 @@ import (
 	"strings"
 
 	"github.com/SmokingTheGoaT/go-qrcode-custom/writer/standard"
-	"github.com/yeqown/go-qrcode/writer/terminal"
+	"github.com/SmokingTheGoaT/go-qrcode-custom/writer/terminal"
 
 	"github.com/pkg/errors"
 )
