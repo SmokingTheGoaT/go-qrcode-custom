@@ -220,14 +220,46 @@ func WithHalftone(path string) ImageOption {
 	})
 }
 
-func WithHalftoneFromString(base64ImgStr string) ImageOption {
+func WithHalftoneFromString(base64ImgStr string, urlDecode, rawDecode bool) ImageOption {
 	return newFuncOption(func(oo *outputImageOptions) {
-		byteImg, err := base64.RawURLEncoding.DecodeString(base64ImgStr)
-		if err != nil {
-			fmt.Println("Reading halftone image from string failed: ", err)
-			return
+		var (
+			byteImg []byte
+			err     error
+			img     image.Image
+		)
+		switch urlDecode {
+		case true:
+			switch rawDecode {
+			case true:
+				byteImg, err = base64.RawURLEncoding.DecodeString(base64ImgStr)
+				if err != nil {
+					fmt.Println("Reading halftone image from string failed: ", err)
+					return
+				}
+			case false:
+				byteImg, err = base64.URLEncoding.DecodeString(base64ImgStr)
+				if err != nil {
+					fmt.Println("Reading halftone image from string failed: ", err)
+					return
+				}
+			}
+		case false:
+			switch rawDecode {
+			case true:
+				byteImg, err = base64.RawStdEncoding.DecodeString(base64ImgStr)
+				if err != nil {
+					fmt.Println("Reading halftone image from string failed: ", err)
+					return
+				}
+			case false:
+				byteImg, err = base64.StdEncoding.DecodeString(base64ImgStr)
+				if err != nil {
+					fmt.Println("Reading halftone image from string failed: ", err)
+					return
+				}
+			}
 		}
-		img, _, err := image.Decode(bytes.NewReader(byteImg))
+		img, _, err = image.Decode(bytes.NewReader(byteImg))
 		if err != nil {
 			fmt.Println("Reading halftone image from string failed: ", err)
 			return
